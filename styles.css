@@ -1,0 +1,107 @@
+body {
+    background-color: rgb(230, 229, 229);
+    font-family: Arial, Helvetica, sans-serif;
+}
+main {
+    background-color: white;
+    border-radius: .5rem;
+    padding:1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0%;
+    color:darkslategrey
+}
+.container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    grid-template-areas:
+    "fname fname lname lname job-title job-title"
+    "company company linkedin-url linkedin-url email email"
+    "meet meet meet other other other"
+    "message message message message message message";
+}
+.container > label {
+    display: block;
+}
+label, legend {
+    font-weight: bold;
+    font-size: 13px;
+}
+.format-radio, .mailing-list {
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.container > div {
+    width: 100%;
+}
+input[type="radio"] {
+    accent-color: grey;
+    align-items: center;
+}
+
+.container input, .container select,
+.container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    border-radius: .25rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+textarea {
+    resize: vertical;
+    border-color: lightgrey;
+    padding-bottom: 25px;
+}
+.fname {
+    grid-area: fname;
+}
+.lname {
+    grid-area: lname;
+}
+.job-title {
+    grid-area: job-title;
+}
+.company {
+    grid-area: company;
+}
+.linkedin-url {
+    grid-area: linkedin-url;
+}
+.email {
+    grid-area: email;
+}
+.meet {
+    grid-area: meet;
+}
+.other {
+    grid-area: other;
+}
+.message {
+    grid-area: message;
+}
+fieldset {
+    border-style: none;
+}
+button {
+    border: none;
+    text-decoration: none;
+    background-color: rgb(48, 162, 48);
+    color: white;
+    padding: .5rem 1rem;
+    margin-top: 10px;
+    border-radius: .25rem;
+    font-size: .75rem;
+}
