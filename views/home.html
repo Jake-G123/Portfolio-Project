@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/Ice_Cream_Clip_Art.png">
+    <link rel="stylesheet" href="styles/portfolio-styles.css">
+    <script src="js/portfolio.js" defer></script>
+    <title>Guest Book</title>
+</head>
+<body>
+    <main>
+        <h1>Contact Form</h1>
+        <form id="portfolio-form" action="#" method="get">
+            <div class="container">
+                <div class="fname">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname">
+                    <span id="err-fname" class="error">First name cannot be empty!</span>
+                </div>
+
+                <div class="lname">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname">
+                    <span id="err-lname" class="error">Last name cannot be empty!</span>
+                </div>
+
+                <div class="job-title">
+                    <label for="job-title">Job Title</label>
+                    <input type="text" id="job-title" name="job-title">
+                    <span id="err-job-title" class="error">Job Title cannot be empty!</span>
+                </div>
+
+                <div class="company">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                    <span id="err-company" class="error">Company cannot be empty!</span>
+                </div>
+
+                <div class="linkedin-url">
+                    <label for="linkedin-url">LinkedIn URL</label>
+                    <input type="text" id="linkedin-url" name="linkedin-url">
+                    <span id="err-linkedin-url" class="error">LinkedIn cannot be empty!</span>
+                </div>
+
+                <div class="email">
+                    <label for="email">Email Address</label>
+                    <input type="text" id="email" name="email">
+                    <span id="err-email" class="error">Email cannot be empty!</span>
+                </div>
+
+                <div class="meet">
+                    <label for="meet">How did we meet?</label>
+                    <select id="meet" name="meet">
+                        <option value="none">Please select</option>
+                    </select>
+                    <span id="err-meet" class="error">Please select an option</span>
+                </div>
+
+                <div class="other">
+                    <label for="other">Other (please specify)</label>
+                    <input type="text" id="other" name="other">
+                </div>
+
+                <div class="message">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                    <span id="err-message" class="error">Message cannot be empty!</span>
+                </div>
+            </div>
+
+            <div class="mailing-list">
+                <input type="checkbox" id="mailing-list" name="mailing-list">
+                <label for="mailing-list">Please add me to your mailing list</label>
+            </div>
+
+            <div class="format-radio">
+                <label>Choose an email format:</label>
+                <label>
+                    <input type="radio" name="email-format" value="html"> HTML
+                </label>
+                <label>
+                    <input type="radio" name="email-format" value="text"> Text
+                </label>
+                <span id="err-format-radio" class="error">Email format cannot be empty!</span>
+            </div>
+
+            <div class="form-submit">
+                <button type="submit" name="submit" value="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
