@@ -20,19 +20,19 @@ document.getElementById('portfolio-form').onsubmit = () => {
     }
     // Validate job title
     let jobTitle = document.getElementById('job-title').value.trim();
-    if (!lname) {
+    if (!jobTitle) {
         document.getElementById("err-job-title").style.display = "block";
         isValid = false;
     }
     // Validate company
     let company = document.getElementById('company').value.trim();
-    if (!lname) {
+    if (!company) {
         document.getElementById("err-company").style.display = "block";
         isValid = false;
     }
     // Validate LinkedIn url
     let linkedinurl = document.getElementById('linkedin-url').value.trim();
-    if (!lname) {
+    if (!linkedinurl) {
         document.getElementById("err-linkedin-url").style.display = "block";
         isValid = false;
     }
