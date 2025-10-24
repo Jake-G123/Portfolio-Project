@@ -53,19 +53,21 @@
                     <label for="meet">How did we meet?</label>
                     <select id="meet" name="meet">
                         <option value="none">Please select</option>
+                        <option value="other-dropdown">Other</option>
                     </select>
                     <span id="err-meet" class="error">Please select an option</span>
                 </div>
 
-                <div class="other">
+                <div class="other" id="other-container">
                     <label for="other">Other (please specify)</label>
                     <input type="text" id="other" name="other">
+                    <span id="err-other" class="error">Please specify how we met</span>
                 </div>
 
                 <div class="message">
                     <label for="message">Message</label>
                     <textarea id="message" name="message"></textarea>
-                    <span id="err-message" class="error">Message cannot be empty!</span>
+                    <span id="err-message" class="error">Message cannot be empty</span>
                 </div>
             </div>
 
@@ -74,7 +76,7 @@
                 <label for="mailing-list">Please add me to your mailing list</label>
             </div>
 
-            <div class="format-radio">
+            <div class="format-radio" id="email-format-container">
                 <label>Choose an email format:</label>
                 <label>
                     <input type="radio" name="email-format" value="html"> HTML

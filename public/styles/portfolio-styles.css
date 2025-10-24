@@ -109,6 +109,12 @@ button {
     color: darkred;
     display: none;
 }
+.format-radio {
+    display: none;
+}
+.other {
+    display: none;
+}
 /* Mobile styles */
 @media (max-width: 480px) {
     #main {
