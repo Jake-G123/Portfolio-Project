@@ -19,6 +19,7 @@
   "type": "module",
   "homepage": "https://github.com/Jake-G123/Portfolio-Project#readme",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   },
   "devDependencies": {

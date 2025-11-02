@@ -29,7 +29,7 @@ if (otherDropdown) {
     toggleOtherBox();
 }
 
-document.getElementById('portfolio-form').onsubmit = () => {
+document.getElementById('form').onsubmit = () => {
 
     clearErrors();
 
@@ -49,18 +49,6 @@ document.getElementById('portfolio-form').onsubmit = () => {
         document.getElementById("err-lname").style.display = "block";
         isValid = false;
     }
-    // Validate job title
-    let jobTitle = document.getElementById('job-title').value.trim();
-    if (!jobTitle) {
-        document.getElementById("err-job-title").style.display = "block";
-        isValid = false;
-    }
-    // Validate company
-    let company = document.getElementById('company').value.trim();
-    if (!company) {
-        document.getElementById("err-company").style.display = "block";
-        isValid = false;
-    }
     // Validate LinkedIn url
     let linkedinurl = document.getElementById('linkedin-url').value.trim();
     if (linkedinurl && !linkedinurl.includes("https://linkedin.com/in/")) {
@@ -68,10 +56,24 @@ document.getElementById('portfolio-form').onsubmit = () => {
         isValid = false;
     }
 
-    // Validate email
+    // If text in box and it does not contain @ and .
     let email = document.getElementById('email').value.trim();
     if (email && (email.indexOf("@") === -1 || email.indexOf(".") === -1)) {
-        document.getElementById("err-email").style.display = "block";
+        document.getElementById("err-email-format").style.display = "block";
+        isValid = false;
+    }
+
+    // check if mailing list is checked
+    let mailingList = document.getElementsByName("mailing-list");
+    let isChecked = false;
+    for (let i=0; i<mailingList.length; i++) {
+        if (mailingList[i].checked) {
+            isChecked = true;
+        }
+    }
+
+    if (isChecked && !email) {
+        document.getElementById("err-email-empty").style.display = "block";
         isValid = false;
     }
 
@@ -83,20 +85,8 @@ document.getElementById('portfolio-form').onsubmit = () => {
             count++;
         }
     }
-    if (count === 0) {
+    if (count === 0 && isChecked) {
         document.getElementById("err-format-radio").style.display = "block";
-        isValid = false;
-    }
-
-    let mailingList = document.getElementsByName("mailing-list");
-    let count1 = 0;
-    for (let i=0; i<mailingList.length; i++) {
-        if (mailingList[i].checked) {
-            count1++;
-        }
-    }
-    if (count1 > 0 && !email) {
-        document.getElementById("err-email").style.display = "block";
         isValid = false;
     }
     // Validate how did we meet
@@ -108,13 +98,6 @@ document.getElementById('portfolio-form').onsubmit = () => {
     let otherText = document.getElementById("other").value.trim();
     if (size === "other-dropdown" && !otherText) {
         document.getElementById("err-other").style.display = "block";
-        isValid = false;
-    }
-
-    // Validate message
-    let message = document.getElementById('message').value.trim();
-    if (!message) {
-        document.getElementById("err-message").style.display = "block";
         isValid = false;
     }
 
