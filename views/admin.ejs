@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/Smiley.png">
+    <!-- <link rel="stylesheet" href="styles/portfolio-styles.css"> -->
+    <script src="js/portfolio.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <title>Admin Page</title>
+</head>
+<body>
+    <main>
+        <h1>Admin page</h1>
+        <table id="order-table" class="display">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>LinkedIn</th>
+                    <th>Email</th>
+                    <th>How We Met</th>
+                    <th>Other</th>
+                    <th>Message</th>
+                    <th>Mailing List</th>
+                    <th>Email Format</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach(order => { %>
+                <tr>
+                    <td><%= order.fname %></td>
+                    <td><%= order.lname %></td>
+                    <td><%= order.jobTitle %></td>
+                    <td><%= order.company %></td>
+                    <td><%= order.linkedIn %></td>
+                    <td><%= order.email %></td>
+                    <td><%= order.meet %></td>
+                    <td><%= order.other %></td>
+                    <td><%= order.message %></td>
+                    <td><%= order.mailingList %></td>
+                    <td><%= order.emailFormat %></td>
+                    <td><%= order.timestamp.toLocaleString() %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <a href="/">Place an order</a>
+
+        <a href="https://github.com/Jake-G123/Portfolio-Project">My GitHub Repository</a>
+    <main>
+
+    <script defer>
+        let table = new DataTable('#order-table');
+    </script>
+</body>
+</html>

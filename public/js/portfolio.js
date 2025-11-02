@@ -1,4 +1,35 @@
-document.getElementById('portfolio-form').onsubmit = () => {
+function toggleEmailFormatOptions() {
+    const mailingListCheckbox = document.getElementById("mailing-list"); // checkbox
+    const emailFormatContainer = document.getElementById("email-format-container"); // radio
+
+    if (mailingListCheckbox.checked) { // set format display based on checked
+        emailFormatContainer.style.display = "block";
+    } else {
+        emailFormatContainer.style.display = "none";
+    }
+}
+const mailingListCheckbox = document.getElementById("mailing-list"); // checkbox
+if (mailingListCheckbox) {
+    mailingListCheckbox.addEventListener('change', toggleEmailFormatOptions); // if checkbox changes
+}
+
+function toggleOtherBox() {
+    const otherDropdown = document.getElementById("meet"); // dropdown
+    const otherContainer = document.getElementById("other-container"); // textbox
+
+    if (otherDropdown.value === "other-dropdown") { // set format display based on if other dropdown selected
+        otherContainer.style.display = "block";
+    } else {
+        otherContainer.style.display = "none";
+    }
+}
+const otherDropdown = document.getElementById("meet"); // dropdown box
+if (otherDropdown) {
+    otherDropdown.addEventListener('change', toggleOtherBox); // if dropdown box changes
+    toggleOtherBox();
+}
+
+document.getElementById('form').onsubmit = () => {
 
     clearErrors();
 
@@ -18,29 +49,31 @@ document.getElementById('portfolio-form').onsubmit = () => {
         document.getElementById("err-lname").style.display = "block";
         isValid = false;
     }
-    // Validate job title
-    let jobTitle = document.getElementById('job-title').value.trim();
-    if (!jobTitle) {
-        document.getElementById("err-job-title").style.display = "block";
-        isValid = false;
-    }
-    // Validate company
-    let company = document.getElementById('company').value.trim();
-    if (!company) {
-        document.getElementById("err-company").style.display = "block";
-        isValid = false;
-    }
     // Validate LinkedIn url
     let linkedinurl = document.getElementById('linkedin-url').value.trim();
-    if (!linkedinurl) {
+    if (linkedinurl && !linkedinurl.includes("https://linkedin.com/in/")) {
         document.getElementById("err-linkedin-url").style.display = "block";
         isValid = false;
     }
 
-    // Validate email
+    // If text in box and it does not contain @ and .
     let email = document.getElementById('email').value.trim();
-    if (!email || email.indexOf("@") === -1) {
-        document.getElementById("err-email").style.display = "block";
+    if (email && (email.indexOf("@") === -1 || email.indexOf(".") === -1)) {
+        document.getElementById("err-email-format").style.display = "block";
+        isValid = false;
+    }
+
+    // check if mailing list is checked
+    let mailingList = document.getElementsByName("mailing-list");
+    let isChecked = false;
+    for (let i=0; i<mailingList.length; i++) {
+        if (mailingList[i].checked) {
+            isChecked = true;
+        }
+    }
+
+    if (isChecked && !email) {
+        document.getElementById("err-email-empty").style.display = "block";
         isValid = false;
     }
 
@@ -52,22 +85,19 @@ document.getElementById('portfolio-form').onsubmit = () => {
             count++;
         }
     }
-    if (count === 0) {
+    if (count === 0 && isChecked) {
         document.getElementById("err-format-radio").style.display = "block";
         isValid = false;
     }
-
     // Validate how did we meet
     let size = document.getElementById('meet').value;
     if (size === "none") {
         document.getElementById("err-meet").style.display = "block";
         isValid = false;
     }
-
-    // Validate message
-    let message = document.getElementById('message').value.trim();
-    if (!message) {
-        document.getElementById("err-message").style.display = "block";
+    let otherText = document.getElementById("other").value.trim();
+    if (size === "other-dropdown" && !otherText) {
+        document.getElementById("err-other").style.display = "block";
         isValid = false;
     }
 

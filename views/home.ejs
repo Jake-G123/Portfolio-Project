@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/Ice_Cream_Clip_Art.png">
+    <link rel="icon" href="images/Smiley.png">
     <link rel="stylesheet" href="styles/portfolio-styles.css">
     <script src="js/portfolio.js" defer></script>
     <title>Guest Book</title>
@@ -11,7 +11,7 @@
 <body>
     <main>
         <h1>Contact Form</h1>
-        <form id="portfolio-form" action="#" method="get">
+        <form action="submit-form" method="post" id="form">
             <div class="container">
                 <div class="fname">
                     <label for="fname">First Name</label>
@@ -28,44 +28,44 @@
                 <div class="job-title">
                     <label for="job-title">Job Title</label>
                     <input type="text" id="job-title" name="job-title">
-                    <span id="err-job-title" class="error">Job Title cannot be empty!</span>
                 </div>
 
                 <div class="company">
                     <label for="company">Company</label>
                     <input type="text" id="company" name="company">
-                    <span id="err-company" class="error">Company cannot be empty!</span>
                 </div>
 
                 <div class="linkedin-url">
                     <label for="linkedin-url">LinkedIn URL</label>
                     <input type="text" id="linkedin-url" name="linkedin-url">
-                    <span id="err-linkedin-url" class="error">LinkedIn cannot be empty!</span>
+                    <span id="err-linkedin-url" class="error">Invalid URL format!</span>
                 </div>
 
                 <div class="email">
                     <label for="email">Email Address</label>
                     <input type="text" id="email" name="email">
-                    <span id="err-email" class="error">Email cannot be empty!</span>
+                    <span id="err-email-empty" class="error">Email cannot be empty!</span>
+                    <span id="err-email-format" class="error">Invalid Email format!</span>
                 </div>
 
                 <div class="meet">
                     <label for="meet">How did we meet?</label>
                     <select id="meet" name="meet">
                         <option value="none">Please select</option>
+                        <option value="other-dropdown">Other</option>
                     </select>
                     <span id="err-meet" class="error">Please select an option</span>
                 </div>
 
-                <div class="other">
+                <div class="other" id="other-container">
                     <label for="other">Other (please specify)</label>
                     <input type="text" id="other" name="other">
+                    <span id="err-other" class="error">Please specify how we met</span>
                 </div>
 
                 <div class="message">
                     <label for="message">Message</label>
                     <textarea id="message" name="message"></textarea>
-                    <span id="err-message" class="error">Message cannot be empty!</span>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
                 <label for="mailing-list">Please add me to your mailing list</label>
             </div>
 
-            <div class="format-radio">
+            <div class="format-radio" id="email-format-container">
                 <label>Choose an email format:</label>
                 <label>
                     <input type="radio" name="email-format" value="html"> HTML
@@ -86,9 +86,11 @@
             </div>
 
             <div class="form-submit">
-                <button type="submit" name="submit" value="submit">Submit</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
+
+        <a href="https://github.com/Jake-G123/Portfolio-Project">My GitHub Repository</a>
     </main>
 </body>
 </html>

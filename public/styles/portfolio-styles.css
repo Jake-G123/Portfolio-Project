@@ -1,3 +1,7 @@
+html {
+    min-width: 325px;
+}
+
 body {
     background-color: rgb(230, 229, 229);
     font-family: Arial, Helvetica, sans-serif;
@@ -105,13 +109,43 @@ button {
     border-radius: .25rem;
     font-size: .75rem;
 }
+#to-home-button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    text-decoration: none;
+}
 .error {
     color: darkred;
     display: none;
 }
+.format-radio {
+    display: none;
+}
+.other {
+    display: none;
+}
 /* Mobile styles */
 @media (max-width: 480px) {
-    #main {
-        width: 90%;
+    main {
+        margin: 0%;
     }
+    .container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+    "fname"
+    "lname"
+    "job-title"
+    "company"
+    "linkedin-url" 
+    "email"
+    "meet" 
+    "other"
+    "message";
+}
 }
