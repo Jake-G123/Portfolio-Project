@@ -13,6 +13,9 @@ const PORT = 3003;
 app.get('/', (req, res) => {
      res.render('home');
 });
+app.get('/contact', (req, res) => {
+     res.render('contact');
+});
 
 app.get('/admin', (req, res) => {
     res.render('admin', { orders }); // change orders name

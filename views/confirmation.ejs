@@ -6,19 +6,32 @@
     <link rel="icon" href="images/Smiley.png">
     <link rel="stylesheet" href="styles/portfolio-styles.css">
     <script src="js/portfolio.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <title>Request Confirmed!</title>
 </head>
 <body>
+    <%- include('partials/navigation') %>
     <main>
         <h1>Request Confirmed!</h1>
-        <a href="/" id="to-home-button" >
+        <div id="confirmation-info">
+            <% if (order.fname.length != 0 && order.lname.length != 0) { %> <p><%= "Name: " + order.fname + " " + order.lname %></p> <% } %>
+            <% if (order.jobTitle) { %> <p><%= "Title: " + order.jobTitle %></p> <% } %>
+            <% if (order.company) { %> <p><%= "Company: " + order.company %></p> <% } %>
+            <% if (order.linkedIn) { %> <p><%= "LinkedIn: " + order.linkedIn %></p> <% } %>
+            <% if (order.email) { %> <p><%= "Email: " + order.email %></p> <% } %>
+            <% if (order.meet && order.other.length == 0) { %> <p><%= "How we met: " + order.meet %></p> <% } %>
+            <% if (order.other) { %> <p><%= "How we met: " + order.other %></p> <% } %>
+            <% if (order.message) { %> <p><%= "Additional comment: " + order.message %></p> <% } %>
+            <% if (order.mailingList) { %> <p><%= "Include in mailing list: Yes" %></p> <% } %>
+            <% if (order.emailFormat == 'html') { %> <p><%= "Format of email: HTML" %></p> <% } %>
+            <% if (order.emailFormat == 'text') { %> <p><%= "Format of email: Text" %></p> <% } %>
+            <% if (order.timestamp) { %> <p><%= "Time of submission: " + order.timestamp.toLocaleString() %></p> <% } %>
+        </div>
+        <a href="/contact" id="to-contact-button" >
             <button type="button">
                 Make another Request
             </button>
         </a>
-        <br>
-
-        <a href="https://github.com/Jake-G123/Portfolio-Project">My GitHub Repository</a>
     </main>
 </body>
 </html>

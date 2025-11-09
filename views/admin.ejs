@@ -8,13 +8,15 @@
     <script src="js/portfolio.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
-
+    <link rel="stylesheet" href="styles/portfolio-styles.css">
     <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
     <title>Admin Page</title>
 </head>
 <body>
+    <%- include('partials/navigation') %>
     <main>
         <h1>Admin page</h1>
+        <% if (orders.length != 0) { %>
         <table id="order-table" class="display">
             <thead>
                 <tr>
@@ -34,27 +36,27 @@
             </thead>
             <tbody>
                 <% orders.forEach(order => { %>
-                <tr>
-                    <td><%= order.fname %></td>
-                    <td><%= order.lname %></td>
-                    <td><%= order.jobTitle %></td>
-                    <td><%= order.company %></td>
-                    <td><%= order.linkedIn %></td>
-                    <td><%= order.email %></td>
-                    <td><%= order.meet %></td>
-                    <td><%= order.other %></td>
-                    <td><%= order.message %></td>
-                    <td><%= order.mailingList %></td>
-                    <td><%= order.emailFormat %></td>
-                    <td><%= order.timestamp.toLocaleString() %></td>
-                </tr>
+                        <tr>
+                            <td><%= order.fname %></td>
+                            <td><%= order.lname %></td>
+                            <td><%= order.jobTitle %></td>
+                            <td><%= order.company %></td>
+                            <td><%= order.linkedIn %></td>
+                            <td><%= order.email %></td>
+                            <td><%= order.meet %></td>
+                            <td><%= order.other %></td>
+                            <td><%= order.message %></td>
+                            <td><%= order.mailingList %></td>
+                            <td><%= order.emailFormat %></td>
+                            <td><%= order.timestamp.toLocaleString() %></td>
+                        </tr>
                 <% }); %>
             </tbody>
         </table>
-        <a href="/">Place an order</a>
-
-        <a href="https://github.com/Jake-G123/Portfolio-Project">My GitHub Repository</a>
-    <main>
+        <% } else { %>
+            <h2><%= "Currently there are no submissions" %></h2>
+        <% } %>
+    </main>
 
     <script defer>
         let table = new DataTable('#order-table');

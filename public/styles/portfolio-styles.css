@@ -17,9 +17,9 @@ main {
 h1 {
     text-align: center;
     font-size: 1.5rem;
-    margin: 0%;
-    color:darkslategrey
+    color:darkslategrey;
 }
+
 .container {
     display: grid;
     justify-items: center;
@@ -109,7 +109,7 @@ button {
     border-radius: .25rem;
     font-size: .75rem;
 }
-#to-home-button {
+#to-contact-button {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -125,6 +125,34 @@ button {
 .other {
     display: none;
 }
+nav {
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+nav > a {
+    padding-left: 1%;
+    padding-right: 1%;
+    text-decoration: none;
+    color:darkslategrey;
+}
+nav > a:hover {
+    font-weight: bold;
+}
+#confirmation-info {
+    margin-left:5%;
+}
+#personal-contact {
+    display: flex;
+    flex-flow:column nowrap;
+    align-items: center;
+}
+#personal-contact > p {
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
+
 /* Mobile styles */
 @media (max-width: 480px) {
     main {

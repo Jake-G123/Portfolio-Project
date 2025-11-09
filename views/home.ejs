@@ -6,91 +6,36 @@
     <link rel="icon" href="images/Smiley.png">
     <link rel="stylesheet" href="styles/portfolio-styles.css">
     <script src="js/portfolio.js" defer></script>
-    <title>Guest Book</title>
+    <title>Homepage</title>
 </head>
 <body>
+    <%- include('partials/navigation') %>
     <main>
-        <h1>Contact Form</h1>
-        <form action="submit-form" method="post" id="form">
-            <div class="container">
-                <div class="fname">
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fname">
-                    <span id="err-fname" class="error">First name cannot be empty!</span>
-                </div>
-
-                <div class="lname">
-                    <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                    <span id="err-lname" class="error">Last name cannot be empty!</span>
-                </div>
-
-                <div class="job-title">
-                    <label for="job-title">Job Title</label>
-                    <input type="text" id="job-title" name="job-title">
-                </div>
-
-                <div class="company">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
-                </div>
-
-                <div class="linkedin-url">
-                    <label for="linkedin-url">LinkedIn URL</label>
-                    <input type="text" id="linkedin-url" name="linkedin-url">
-                    <span id="err-linkedin-url" class="error">Invalid URL format!</span>
-                </div>
-
-                <div class="email">
-                    <label for="email">Email Address</label>
-                    <input type="text" id="email" name="email">
-                    <span id="err-email-empty" class="error">Email cannot be empty!</span>
-                    <span id="err-email-format" class="error">Invalid Email format!</span>
-                </div>
-
-                <div class="meet">
-                    <label for="meet">How did we meet?</label>
-                    <select id="meet" name="meet">
-                        <option value="none">Please select</option>
-                        <option value="other-dropdown">Other</option>
-                    </select>
-                    <span id="err-meet" class="error">Please select an option</span>
-                </div>
-
-                <div class="other" id="other-container">
-                    <label for="other">Other (please specify)</label>
-                    <input type="text" id="other" name="other">
-                    <span id="err-other" class="error">Please specify how we met</span>
-                </div>
-
-                <div class="message">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-            </div>
-
-            <div class="mailing-list">
-                <input type="checkbox" id="mailing-list" name="mailing-list">
-                <label for="mailing-list">Please add me to your mailing list</label>
-            </div>
-
-            <div class="format-radio" id="email-format-container">
-                <label>Choose an email format:</label>
-                <label>
-                    <input type="radio" name="email-format" value="html"> HTML
-                </label>
-                <label>
-                    <input type="radio" name="email-format" value="text"> Text
-                </label>
-                <span id="err-format-radio" class="error">Email format cannot be empty!</span>
-            </div>
-
-            <div class="form-submit">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-
-        <a href="https://github.com/Jake-G123/Portfolio-Project">My GitHub Repository</a>
+        <h1>Jacob Gerken</h1>
+        <div id="personal-contact">
+            <img src="images/Portrait.jpg" alt="Portrait of myself" width="120"> <!--This photo is bad take another-->
+            <p>gerken.jacob@student.greenriver.edu</p>
+            <p>(206) 397-5958</p>
+        </div>
+        
+        <h2>Summary</h2>
+        <p>Software development student seeking internship in web development</p>
+        <h2>Education</h2>
+        <p><b>Green River College</b> – Auburn, WA
+            Bachelor of Applied Science, expected June 2027
+            Major: Software Development (Applied Computer Science)
+        </p>
+        <h2>Relevant Coursework:</h2>
+        <ul>
+            <li>Object-Oriented Programming</li>
+            <li>Data Structures</li>
+            <li>Database Fundamentals</li>
+        </ul>
+        <h2>Skills</h2>
+        <ul>
+            <li>Languages: Java, SQL, JavaScript</li>
+            <li>Web: HTML/CSS</li>
+        </ul>
     </main>
 </body>
 </html>
