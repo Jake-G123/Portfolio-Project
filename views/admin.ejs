@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/Smiley.png">
-    <!-- <link rel="stylesheet" href="styles/portfolio-styles.css"> -->
     <script src="js/portfolio.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
-    <link rel="stylesheet" href="styles/portfolio-styles.css">
+    <!-- <link rel="stylesheet" href="styles/portfolio-styles.css"> -->
     <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
     <title>Admin Page</title>
 </head>
@@ -16,8 +15,8 @@
     <%- include('partials/navigation') %>
     <main>
         <h1>Admin page</h1>
-        <% if (orders.length != 0) { %>
-        <table id="order-table" class="display">
+        <% if (contacs.length != 0) { %>
+        <table id="contact-table" class="display">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -35,20 +34,20 @@
                 </tr>
             </thead>
             <tbody>
-                <% orders.forEach(order => { %>
+                <% contacts.forEach(contact => { %>
                         <tr>
-                            <td><%= order.fname %></td>
-                            <td><%= order.lname %></td>
-                            <td><%= order.jobTitle %></td>
-                            <td><%= order.company %></td>
-                            <td><%= order.linkedIn %></td>
-                            <td><%= order.email %></td>
-                            <td><%= order.meet %></td>
-                            <td><%= order.other %></td>
-                            <td><%= order.message %></td>
-                            <td><%= order.mailingList %></td>
-                            <td><%= order.emailFormat %></td>
-                            <td><%= order.timestamp.toLocaleString() %></td>
+                            <td><%= contact.fname %></td>
+                            <td><%= contact.lname %></td>
+                            <td><%= contact.jobTitle %></td>
+                            <td><%= contact.company %></td>
+                            <td><%= contact.linkedin %></td>
+                            <td><%= contact.email %></td>
+                            <td><%= contact.meet %></td>
+                            <td><%= contact.other %></td>
+                            <td><%= contact.message %></td>
+                            <td><%= contact.mailinglist %></td>
+                            <td><%= contact.emailformat %></td>
+                            <td><%= contact.timestamp.toLocaleString() %></td>
                         </tr>
                 <% }); %>
             </tbody>
@@ -59,7 +58,7 @@
     </main>
 
     <script defer>
-        let table = new DataTable('#order-table');
+        let table = new DataTable('#contact-table');
     </script>
 </body>
 </html>

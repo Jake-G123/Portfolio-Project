@@ -14,18 +14,18 @@
     <main>
         <h1>Request Confirmed!</h1>
         <div id="confirmation-info">
-            <% if (order.fname.length != 0 && order.lname.length != 0) { %> <p><%= "Name: " + order.fname + " " + order.lname %></p> <% } %>
-            <% if (order.jobTitle) { %> <p><%= "Title: " + order.jobTitle %></p> <% } %>
-            <% if (order.company) { %> <p><%= "Company: " + order.company %></p> <% } %>
-            <% if (order.linkedIn) { %> <p><%= "LinkedIn: " + order.linkedIn %></p> <% } %>
-            <% if (order.email) { %> <p><%= "Email: " + order.email %></p> <% } %>
-            <% if (order.meet && order.other.length == 0) { %> <p><%= "How we met: " + order.meet %></p> <% } %>
-            <% if (order.other) { %> <p><%= "How we met: " + order.other %></p> <% } %>
-            <% if (order.message) { %> <p><%= "Additional comment: " + order.message %></p> <% } %>
-            <% if (order.mailingList) { %> <p><%= "Include in mailing list: Yes" %></p> <% } %>
-            <% if (order.emailFormat == 'html') { %> <p><%= "Format of email: HTML" %></p> <% } %>
-            <% if (order.emailFormat == 'text') { %> <p><%= "Format of email: Text" %></p> <% } %>
-            <% if (order.timestamp) { %> <p><%= "Time of submission: " + order.timestamp.toLocaleString() %></p> <% } %>
+            <% if (contact.fname.length != 0 && contact.lname.length != 0) { %> <p><%= "Name: " + contact.fname + " " + contact.lname %></p> <% } %>
+            <% if (contact.jobTitle) { %> <p><%= "Title: " + contact.jobTitle %></p> <% } %>
+            <% if (contact.company) { %> <p><%= "Company: " + contact.company %></p> <% } %>
+            <% if (contact.linkedIn) { %> <p><%= "LinkedIn: " + contact.linkedIn %></p> <% } %>
+            <% if (contact.email) { %> <p><%= "Email: " + contact.email %></p> <% } %>
+            <% if (contact.meet && contact.other.length == 0) { %> <p><%= "How we met: " + contact.meet %></p> <% } %>
+            <% if (contact.other) { %> <p><%= "How we met: " + contact.other %></p> <% } %>
+            <% if (contact.message) { %> <p><%= "Additional comment: " + contact.message %></p> <% } %>
+            <% if (contact.mailingList) { %> <p><%= "Include in mailing list: Yes" %></p> <% } %>
+            <% if (contact.emailFormat == 'html') { %> <p><%= "Format of email: HTML" %></p> <% } %>
+            <% if (contact.emailFormat == 'text') { %> <p><%= "Format of email: Text" %></p> <% } %>
+            <% if (contact.timestamp) { %> <p><%= "Time of submission: " + contact.timestamp.toLocaleString() %></p> <% } %>
         </div>
         <a href="/contact" id="to-contact-button" >
             <button type="button">

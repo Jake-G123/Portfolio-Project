@@ -1,6 +1,6 @@
 function toggleEmailFormatOptions() {
-    const mailingListCheckbox = document.getElementById("mailing-list"); // checkbox
-    const emailFormatContainer = document.getElementById("email-format-container"); // radio
+    const mailingListCheckbox = document.getElementById("mailingList"); // checkbox
+    const emailFormatContainer = document.getElementById("emailFormat-container"); // radio
 
     if (mailingListCheckbox.checked) { // set format display based on checked
         emailFormatContainer.style.display = "block";
@@ -8,7 +8,7 @@ function toggleEmailFormatOptions() {
         emailFormatContainer.style.display = "none";
     }
 }
-const mailingListCheckbox = document.getElementById("mailing-list"); // checkbox
+const mailingListCheckbox = document.getElementById("mailingList"); // checkbox
 if (mailingListCheckbox) {
     mailingListCheckbox.addEventListener('change', toggleEmailFormatOptions); // if checkbox changes
 }
@@ -30,41 +30,45 @@ if (otherDropdown) {
 }
 
 document.getElementById('form').onsubmit = () => {
-
     clearErrors();
-
-    // Flag variable to determine if form data is valid
     let isValid = true;
 
-    // Validate first name
+    let mailingList = document.getElementsByName("mailingList");
+    let emailFormat = document.getElementsByName("emailFormat");
     let fname = document.getElementById('fname').value.trim();
+    let lname = document.getElementById('lname').value.trim();
+    let jobTitle = document.getElementById('jobTitle').value.trim();
+    let company = document.getElementById('company').value.trim();
+    let linkedIn = document.getElementById('linkedIn').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let meet = document.getElementById('meet').value;
+    let other = document.getElementById("other").value.trim(); 
+    let message = document.getElementById('message').value.trim();
+
+    // Validate first name
     if (!fname) {
         document.getElementById("err-fname").style.display = "block";
         isValid = false;
     }
 
     // Validate last name
-    let lname = document.getElementById('lname').value.trim();
     if (!lname) {
         document.getElementById("err-lname").style.display = "block";
         isValid = false;
     }
     // Validate LinkedIn url
-    let linkedinurl = document.getElementById('linkedin-url').value.trim();
-    if (linkedinurl && !linkedinurl.includes("https://linkedin.com/in/")) {
-        document.getElementById("err-linkedin-url").style.display = "block";
+    if (linkedIn && !linkedIn.includes("https://linkedin.com/in/")) {
+        document.getElementById("err-linkedIn").style.display = "block";
         isValid = false;
     }
 
     // If text in box and it does not contain @ and .
-    let email = document.getElementById('email').value.trim();
     if (email && (email.indexOf("@") === -1 || email.indexOf(".") === -1)) {
-        document.getElementById("err-email-format").style.display = "block";
+        document.getElementById("err-emailFormat").style.display = "block";
         isValid = false;
     }
 
     // check if mailing list is checked
-    let mailingList = document.getElementsByName("mailing-list");
     let isChecked = false;
     for (let i=0; i<mailingList.length; i++) {
         if (mailingList[i].checked) {
@@ -78,10 +82,9 @@ document.getElementById('form').onsubmit = () => {
     }
 
     // Validate email format
-    let formatButtons = document.getElementsByName("email-format");
     let count = 0;
-    for (let i=0; i<formatButtons.length; i++) {
-        if (formatButtons[i].checked) {
+    for (let i=0; i<emailFormat.length; i++) {
+        if (emailFormat[i].checked) {
             count++;
         }
     }
@@ -90,17 +93,14 @@ document.getElementById('form').onsubmit = () => {
         isValid = false;
     }
     // Validate how did we meet
-    let size = document.getElementById('meet').value;
-    if (size === "none") {
+    if (meet === "none") {
         document.getElementById("err-meet").style.display = "block";
         isValid = false;
     }
-    let otherText = document.getElementById("other").value.trim();
-    if (size === "other-dropdown" && !otherText) {
+    if (meet === "other-dropdown" && !other) {
         document.getElementById("err-other").style.display = "block";
         isValid = false;
     }
-
 
     // Return isValid flag
     return isValid;

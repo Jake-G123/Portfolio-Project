@@ -40,7 +40,7 @@ label, legend {
     font-weight: bold;
     font-size: 13px;
 }
-.format-radio, .mailing-list {
+.format-radio, .mailingList {
     display:flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -75,13 +75,13 @@ textarea {
 .lname {
     grid-area: lname;
 }
-.job-title {
+.jobTitle {
     grid-area: job-title;
 }
 .company {
     grid-area: company;
 }
-.linkedin-url {
+.linkedIn {
     grid-area: linkedin-url;
 }
 .email {
